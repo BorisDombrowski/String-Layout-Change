@@ -1,8 +1,6 @@
 ﻿using String_Layout_Change.Properties;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace String_Layout_Change
@@ -17,7 +15,7 @@ namespace String_Layout_Change
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Context());
+            Application.Run(new Context());            
         }
     }
 
@@ -37,6 +35,16 @@ namespace String_Layout_Change
                 }),
                 Visible = true
             };
+
+            if (File.Exists(Resources.settingsPath))
+            {
+                var file = File.ReadAllText(Resources.settingsPath);
+                LayoutChanger.SetCurrentLayout(file);
+            }
+            else
+            {
+                MessageBox.Show("Unable to find settings file!");
+            }
         }
 
         void OpenSettings(object sender, EventArgs e)

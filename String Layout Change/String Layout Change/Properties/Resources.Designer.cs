@@ -71,11 +71,11 @@ namespace String_Layout_Change.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на .
+        ///   Ищет локализованную строку, похожую на settings.txt.
         /// </summary>
-        internal static string Res {
+        internal static string settingsPath {
             get {
-                return ResourceManager.GetString("Res", resourceCulture);
+                return ResourceManager.GetString("settingsPath", resourceCulture);
             }
         }
     }
